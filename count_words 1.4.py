@@ -17,7 +17,8 @@ sugerencias = {
     "counteracting": "Considera cambiar 'counteracting' por 'addressing'",
     "countering": "Considera cambiar 'countering' por 'addressing'",
     "counteracts": "Considera cambiar 'counteracts' por 'addresses'",
-    "counteract": "Considera cambiar 'counteract' por 'address'"
+    "counteract": "Considera cambiar 'counteract' por 'address'",
+    "targeted interventions": "No es necesario reemplazar 'targeted interventions' o 'targeted intervention'."
 }
 
 # Función para contar las ocurrencias de las palabras en el texto
@@ -44,14 +45,19 @@ def contar_palabras_parciales(texto, palabras_buscar):
 
     # Ahora contar las palabras individuales
     for palabra in palabras_buscar:
+        # Si la palabra es 'targeted' y está seguida de 'interventions' o 'intervention'
+        if palabra == 'targeted':
+            patron = re.compile(rf'\b{re.escape(palabra)}\b \b(interventions|intervention)\b')
+            coincidencias = patron.findall(texto)
+            if coincidencias:
+                # Contar la ocurrencia de "targeted interventions" o "targeted intervention"
+                resultados['targeted interventions'] = len(coincidencias)  # Usamos 'targeted interventions' como clave final
+                # No realizar más acciones sobre 'targeted' porque ya fue contada correctamente
+                continue
+
         # No contar las palabras que ya forman parte de una frase completa
         if palabra not in ['replacement behavior programs', 'planned ignoring in terms of extinction']:
-            # Si la palabra es "met", usamos delimitadores de palabra \b para asegurarnos que no se cuente como parte de otras palabras
-            if palabra == "met":
-                patron = re.compile(rf'\b{re.escape(palabra.lower())}\b')  # Buscar 'met' solo como palabra completa
-            else:
-                patron = re.compile(rf'\b{re.escape(palabra.lower())}\b')  # Para otras palabras, usar delimitadores de palabra
-            
+            patron = re.compile(rf'\b{re.escape(palabra.lower())}\b')  # Para otras palabras, usar delimitadores de palabra
             coincidencias = patron.findall(texto)
             if coincidencias:
                 resultados[palabra] = len(coincidencias)
@@ -66,7 +72,9 @@ def obtener_palabra_siguiente(texto, palabra_buscar):
 
 # Ejemplo de uso
 texto_ejemplo = """
-During today's visit to the ABA Center, the RBT observed maladaptive behaviors that included physical aggression and climbing. In response to these behaviors, the RBT implemented specific replacement behavior programs to modify the client's response in challenging situations. To address the presence of objects in the client's mouth, the RBT encouraged the behavior of handing out items upon request, and to manage impulse control and safety, the client was trained to wait next to a caregiver. For reinforcement, the RBT used the client's favorite toy as a motivational tool, categorized under "Other," to encourage the adoption of positive replacement behavior programs and to reduce reliance on maladaptive responses. The RBT applied targeted interventions for each maladaptive behavior observed. In the case of climbing, which appeared to occur without demands and seemed to serve a sensory function, the RBT used redirection as an intervention strategy. This involved guiding the client towards more appropriate activities or locations to fulfill his sensory needs without climbing. Regarding episodes of physical aggression, which were triggered when the client was denied access to a preferred outing, the RBT inferred the function to be tangible. In dealing with these aggressive behaviors, the RBT interrupted the behavior using physical guidance to prevent escalation and to ensure the safety of all parties involved. Today's visit focused on identifying triggers and functions of maladaptive behaviors while diligently applying reinforcement and interventions to promote adaptive skills and reduce the impact of challenging behaviors.
+During the school visit, the RBT observed several maladaptive behaviors exhibited by the client, including throwing objects, tantrums, elopement, and task refusal. To address these behaviors, the RBT implemented several replacement behavior programs designed to foster more appropriate responses. For example, the client was encouraged to stop leisure activities when asked, share or take turns obtaining preferred items, and accept the removal of access to certain items by an authority figure. Furthermore, the client was taught to transition from preferred activities to required tasks, to wait after requesting gradually increasing periods, and to complete single-response tasks during one-on-one instruction and therapy. Functional Communication Training was also utilized, specifically to encourage the client to ask for assistance appropriately and to seek attention appropriately. As part of the reinforcement strategy, social reinforcements such as verbal praise, "Good job," and high fives were provided to encourage and reinforce positive behaviors. The RBT applied targeted interventions to manage the maladaptive behaviors. For instance, tantrums, which often arose when attention was given to others, were addressed using Differential Reinforcement of Alternative behaviors (DRA) for attention-motivated behaviors. Task refusal, typically triggered by being asked to perform a task, was managed through DRA for behaviors maintained by escape, focusing on helping the client complete tasks to avoid avoidance-related behaviors. In dealing with throwing objects, an intervention involving Non-contingency Reinforcement for escape was applied, aimed at preventing the client from becoming overwhelmed when asked to work. Finally, for behaviors related to elopement, which tended to occur during transitions from preferred to non-preferred activities, the RBT again utilized DRA for behaviors maintained by escape to encourage more constructive responses. Overall, the visit was structured to guide the client towards more adaptive behaviors, employing a combination of reinforcement, teaching replacement behavior programs, and specific interventions addressing the functions of maladaptive behaviors.
+
+
 
 
 """
@@ -126,15 +134,8 @@ resultados = contar_palabras_parciales(texto_ejemplo, palabras_buscar)
 
 # Mostrar resultados con sugerencias cuando corresponda
 for palabra, conteo in resultados.items():
-    if palabra in ['he', 'she']:
-        # Obtener la palabra siguiente y mostrar en el formato solicitado
-        palabras_siguientes = obtener_palabra_siguiente(texto_ejemplo, palabra)
-        for siguiente in palabras_siguientes:
-            salida = f"{palabra} {siguiente}: {conteo}"
-            print(salida)
-    else:
-        salida = f"{palabra}: {conteo}"
-        # Si la palabra tiene sugerencia, agregarla
-        if palabra in sugerencias:
-            salida += f" (Sugerencia: {sugerencias[palabra]})"
-        print(salida)
+    salida = f"{palabra}: {conteo}"
+    # Si existe una sugerencia para la palabra en el diccionario, agregarla
+    if palabra in sugerencias:
+        salida += f"  {sugerencias[palabra]}"  # Sugerencia en la misma línea
+    print(salida)
