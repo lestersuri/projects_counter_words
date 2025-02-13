@@ -1,6 +1,8 @@
 import re
 from collections import Counter
 
+# proyecto vinculado a git
+
 # Diccionario con sugerencias para palabras específicas
 sugerencias = {
     "desired task": "Considera cambiar 'desired task' por 'preferred task'",
