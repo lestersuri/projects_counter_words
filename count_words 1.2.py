@@ -13,6 +13,7 @@ sugerencias = {
     "desire to escape": "Considera cambiar 'desire to escape' por 'want to escape'",
     "desire for tangibles": "Considere cambiar 'desire for tangibles' por 'want for tangibles'",
     "desired attention": "Considerar cambiar 'desired attention' por 'preferred attention'",
+    "undesirable": "Considerar cambiar 'undesarible' por 'non-preferred'",
     "targeted behaviors": "Considere cambiar 'targeted behaviors' por 'addressed behaviors'",
     "counteracting": "Considera cambiar 'counteracting' por 'addressing'",
     "countering": "Considera cambiar 'countering' por 'addressing'",
@@ -53,11 +54,17 @@ def obtener_palabra_siguiente(texto, palabra_buscar):
 
 # Ejemplo de uso
 texto_ejemplo = """
-Services were delivered at a previously agreed time, with Ramzi, the teacher, and RBT present at the client's school. The BCBA implemented various instructional approaches, including Discrete Trial Training (DTT), Functional Communication Training (FCT), Incidental Teaching, and Errorless Teaching. Adjustments were made to the current protocol during the therapy session. The modifications included changing materials, identifying triggers or discriminative stimuli, and introducing preventive strategies by manipulating antecedents to decrease tantrum behaviors. Direct observation was used to evaluate treatment integrity. During this visit, the RBT received supervision from the BCBA, who provided direct observation throughout the treatment. The objectives of the supervision included active direction of the RBT during services to ensure proper implementation and fidelity of procedures, supervisory discussion and feedback, covering items from the BACB Task List, and observing the RBT's interaction with the client. The following items from the BACB Task List were revised: preparing for data collection, entering data and updating graphs, reporting variables that might affect the client in a timely manner, and maintaining client dignity. The overall evaluation for today was "Satisfactory," and supervisory feedback was provided to the supervisor. The lead analyst completed probing of the programs, maintaining eye contact, and responding to peer play initiation, showing difficulties for Ramzi in initiating a conversation or game when given directions by a peer. He required modeling from the RBT with a maximum time of 20 seconds of interaction. Highly preferred reinforcers were used for the training of this program later to evaluate progression after at least one week of training. The supervisor developed performance expectations for the supervisee and observed the provision of behavioral skills training. The analyst guided the development of problem-solving and ethical decision-making skills and evaluated the effects of supervision and behavior-analytic processes. No environmental changes or medical or safety concerns were noted throughout the session. Data were collected following the existing service plan.
+During today's visit, the session took place at a community center following a caregiver's request, intending to evaluate the client's behavior in the new environment and to help the client engage in various community classes in the future (depending on the client's response). The analyst conducted assessments using the ABC Data Recording Chart and the VB-MAPP Assessment to observe and measure the client's behaviors. Several maladaptive behaviors were observed, including off-task behavior, inappropriate touching of others, non-compliance, vocal stereotypes, elopement, and touching private parts in front of others. To address these behaviors, the participants implemented targeted interventions, evaluating their effectiveness. For off-task behavior associated with delayed access to tangibles, interventions included Differential Reinforcement of Alternative Behaviors (DRA) and Tangible Extinction. For non-compliance in response to non-preferred tasks, strategies incorporated DRA, escape independent response delivery or mini-breaks, and extinction. Inappropriate touching of others was addressed with attention-independent response delivery (NCR) and DRA, addressing the function of gaining attention when adults or caregivers spoke to others. Vocal stereotypes during downtime triggered by automatic reinforcement were approached using DRA. Concerning touching private parts when others were nearby for attention, interventions executed involved DRA, attention extinction, and NCR techniques. The analyst also modeled various replacement behavior programs, such as maintaining appropriate physical proximity to peers and adults, politely manding to stop undesirable activities, following complex instructions, and engaging in communicative exchanges through tacting and labeling. The client was also guided to participate in sustained entertainment activities without maladaptive behaviors, to communicate likes and dislikes, and to keep their area organized. Additionally, protocol modifications were made with the introduction of a visual schedule to help the client manage the novel setting and activities more effectively, aiming to enhance their adaptability and reduce anxiety in this new environment.
+
+
+
+
+
 """
 
 palabras_buscar = [
     'replacement behavior',
+    'replacement behavior programs',
     'desire',
     'undesired',
     'desired items',
