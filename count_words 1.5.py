@@ -30,7 +30,8 @@ def contar_palabras_parciales(texto, palabras_buscar):
     # Definir las frases que no deben ser contadas palabra por palabra
     frases_completas = [
         "replacement behavior programs",
-        "planned ignoring in terms of extinction"
+        "planned ignoring in terms of extinction",
+        "targeted interventions"  # Añadir "targeted interventions" a las frases completas
     ]
 
     # Contar las frases completas primero para que no se cuenten las partes de ellas
@@ -40,23 +41,17 @@ def contar_palabras_parciales(texto, palabras_buscar):
         if coincidencias:
             resultados[frase] = len(coincidencias)
             # Una vez que contamos la frase completa, eliminamos las palabras que la componen
-            # Esto asegura que no se cuenten "replacement behavior" o "planned ignoring" por separado
+            # Esto asegura que no se cuenten las partes de la frase por separado
             texto = texto.replace(frase.lower(), '')
 
     # Ahora contar las palabras individuales
     for palabra in palabras_buscar:
-        # Si la palabra es 'he' o 'she' seguida de otra palabra (por ejemplo, 'he wanted')
-        if palabra in ['he', 'she']:
-            patron = re.compile(rf'\b{re.escape(palabra)}\b \w+')  # Coincidir 'he' o 'she' seguido de cualquier palabra
-            coincidencias = patron.findall(texto)
-            if coincidencias:
-                for coincidencia in coincidencias:
-                    palabra_completa = coincidencia.strip()
-                    resultados[palabra_completa] = resultados.get(palabra_completa, 0) + 1
-            continue
+        # No contar la palabra "targeted" si ya se ha contado como parte de "targeted interventions"
+        if palabra == "targeted" and "targeted interventions" in resultados:
+            continue  # Saltamos la palabra "targeted" si ya se contó "targeted interventions"
         
         # No contar las palabras que ya forman parte de una frase completa
-        if palabra not in ['replacement behavior programs', 'planned ignoring in terms of extinction']:
+        if palabra not in frases_completas:
             patron = re.compile(rf'\b{re.escape(palabra.lower())}\b')  # Para otras palabras, usar delimitadores de palabra
             coincidencias = patron.findall(texto)
             if coincidencias:
@@ -64,10 +59,7 @@ def contar_palabras_parciales(texto, palabras_buscar):
     
     return resultados
 
-texto_ejemplo = input("Entre el texto: ")
-# Ejemplo de uso
-#texto_ejemplo = """
-#During today's home visit, the RBT observed a series of maladaptive behaviors and implemented targeted interventions various interventions to address them. The maladaptive behaviors displayed included Tantrums, Elopement, Property Destruction, Self-Injury with head banging, Self-Scratching, Task Refusal Behavior, and Isolation. To foster positive behavior changes, the RBT introduced several replacement behavior programs. These included prompting Ramzi to request a break, request attention, engage in an alternative activity when denied a preferred one, and respond appropriately when told to "Stop." The RBT also encouraged Ramzi to request permission to exit, follow instructions in a group, adhere to one-step instructions, and maintain eye contact for 5 seconds when prompted. Additionally, the RBT worked on social skills by initiating and returning greetings, engaging in conversational skills such as keeping their body facing a peer or adult during a two-way conversation for no more than one minute and complying with simple non-preferred tasks for no more than two minutes. Other replacement behavior programs included manding for items or activities, requesting help, requesting a delay of transition, responding to peer play-initiation statements, and playing with peers with prompting for at least five minutes. The RBT applied specific interventions to address particular maladaptive behaviors. For Task Refusal Behavior, where the antecedent was being asked to work, and the function was identified as an escape. Ramzi would signal "No" by shaking his head or saying "No" when the client turned his back on a task or demand. The RBT applied Antecedent Manipulation, Blocking, and Behavioral Momentum. In cases of Elopement, triggered by being given a task to complete, with the function being escape. Ramzi would take off or walk outside a designated/supervised area without adult permission for any duration of time. The RBT implemented Blocking and Antecedent Environmental Manipulation. When addressing Tantrums, they would occur when attention was not given as wanted. Ramzi would engage in crying, yelling, and throwing self on the floor. The RBT applied Behavioral Momentum, Antecedent Manipulation, and Blocking to redirect the behavior toward more positive outcomes. To reinforce positive behaviors, the RBT utilized various reinforcements categorized as Edible, Non-Edible, and Social. Edible reinforcements included Skittles and fruit snacks, while Non-Edible reinforcements consisted of playtime with a trampoline, the use of an iPad, and access to books. Social reinforcement was provided through verbal praise. Overall, the RBT employed a structured approach to mitigate maladaptive behaviors while encouraging the development of appropriate replacement behavior programs, using a combination of reinforcements and targeted interventions to facilitate positive behavioral change during the visit."""
+texto_ejemplo = input("Ingrese el texto: ")
 
 palabras_buscar = [
     'replacement behavior',
