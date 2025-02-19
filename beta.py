@@ -18,6 +18,7 @@ sugerencias = {
     "countering": "Considera cambiar 'countering' por 'addressing'",
     "counteracts": "Considera cambiar 'counteracts' por 'addresses'",
     "counteract": "Considera cambiar 'counteract' por 'address'",
+    "coping": "Considera cambiar 'coping' por 'self-regulating'",
     "targeted interventions": "No es necesario reemplazar 'targeted interventions' o 'targeted intervention'."
 }
 
@@ -69,8 +70,7 @@ def contar_palabras_parciales(texto, palabras_buscar):
     return resultados
 
 texto_ejemplo ="""
-the client, desired behavior and targeted interventions, algo desire something, and target y targeted
-
+During today's visit to the school, the RBT coping observed targeted interventions a range of maladaptive behaviors exhibited by Allen, including tantrums, pushing others, throwing objects, physical aggression, elopement, self-injury behaviors (SIB), and throwing himself on the floor. In response to these behaviors, the RBT implemented several replacement behavior programs aimed at improving Allen's self-regulation and social skills. These included teaching Allen to mand or request for tangible items and activities appropriately, accept "no" as an answer, wait for tangibles or activities for at least five seconds, comply with transitions using a daily visual schedule, keep his shoes on, remain seated while engaging in a preferred activity, play with toys as intended, initiate and reciprocate greetings, engage in alternative activities instead of maladaptive behaviors, walk next to an adult while holding hands, and wait for five seconds for attention. To further support Allen's development, the RBT employed skill acquisition programs. Allen was encouraged to approach when a response was required for reinforcement (A5) and attend to his name (C1). Additionally, he practiced following instructions in routine situations (C7) and performing enjoyable actions (C2). Allen was also guided to wait for five seconds without touching stimuli (A8) and seeking approval for task completion (A19). Reinforcement strategies played an essential role in today's session. The RBT used social and verbal praise to acknowledge Allen's positive behaviors, alongside providing slime as an additional motivator. Specific interventions were applied to address Allen's maladaptive behaviors, such as tantrums and throwing objects. For tantrums, which typically occurred during transitions from preferred to non-preferred activities, the RBT utilized the Premack Principle and redirection techniques to address the escape function. When Allen threw objects, often when attention was focused on his peers, the RBT applied redirection and the Differential Reinforcement of Incompatible Behaviors (DRI) to mitigate this attention-seeking behavior. Overall, today's visit involved a comprehensive approach to managing Allen's behaviors, emphasizing the implementation of replacement behavior programs, skill acquisition programs, and reinforcement strategies to foster positive development and reduce maladaptive behaviors.
 """
 
 palabras_buscar = [
@@ -79,7 +79,10 @@ palabras_buscar = [
     'replacement behavior programs',
     'plannned ignorin',
     'planned ignoring in terms of extinction',
+    'unwarranted',
     'desire',
+    'desires',
+    'planned ignore',
     'undesired',
     'desired items',
     'desire to item',
@@ -129,9 +132,25 @@ palabras_buscar = [
 resultados = contar_palabras_parciales(texto_ejemplo, palabras_buscar)
 
 # Mostrar resultados con sugerencias cuando corresponda
+# Imprimir la línea de inicio solo una vez
+print("********************************************")
+print()  # Espacio entre la línea de inicio y la primera salida
+print()
+print()
+
+# Iterar sobre los resultados
 for palabra, conteo in resultados.items():
     salida = f"{palabra}: {conteo}"
+    
     # Si existe una sugerencia para la palabra en el diccionario, agregarla
     if palabra in sugerencias:
         salida += f"  {sugerencias[palabra]}"  # Sugerencia en la misma línea
+    
     print(salida)
+    print("-----------------------------")
+
+# Imprimir la línea final
+print()
+print()
+print()
+print("********************************************")

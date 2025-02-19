@@ -11,13 +11,22 @@ sugerencias = {
     "desire to item": "Considera cambiar 'desire to item' por 'want to item'",
     "targeted behaviors": "Considera cambiar 'targeted behaviors' por 'addressed behavior'",
     "desire to escape": "Considera cambiar 'desire to escape' por 'want to escape'",
+    "express emotions": "Considera cambiar 'express emotions' por 'internal events'",
     "desire for tangibles": "Considere cambiar 'desire for tangibles' por 'want for tangibles'",
+    "desire tangibles": "Considere cambiar 'desired tangibles' por 'preferred tangibles'",
     "desired attention": "Considerar cambiar 'desired attention' por 'preferred attention'",
     "undesirable": "Considerar cambiar 'undesarible' por 'non-preferred'",
+    "undesired": "Considere cambiar 'undesired' por 'inappropriate'",
     "counteracting": "Considera cambiar 'counteracting' por 'addressing'",
+    "desired items": "Considera cambiar 'desired item' por 'wanted item'",
+    "desired outcomes": "Considera cambiar 'desired outcomes' por 'appropriate outcomes'",
+    "desired outcome": "Considera cambiar 'desired outcome' por 'appropriate outcome'",
     "countering": "Considera cambiar 'countering' por 'addressing'",
     "counteracts": "Considera cambiar 'counteracts' por 'addresses'",
     "counteract": "Considera cambiar 'counteract' por 'address'",
+    "target": "Considera cambiar 'target' por 'address or manage'",
+    "cope": "Considera cambiar 'cope' por 'manage or self-regulate'",
+    "coping": "Considera cambiar 'coping' por 'self-regulating'",
     "targeted interventions": "No es necesario reemplazar 'targeted interventions' o 'targeted intervention'."
 }
 
@@ -69,13 +78,7 @@ def contar_palabras_parciales(texto, palabras_buscar):
     return resultados
 
 texto_ejemplo ="""
-During today's visit to the school, the RBT observed a range of maladaptive behaviors exhibited by Allen, including tantrums, pushing others, throwing objects, physical aggression, elopement, self-injury behaviors (SIB), and throwing himself on the floor. In response to these behaviors, the RBT implemented several replacement behavior programs aimed at improving Allen's self-regulation and social skills. These included teaching Allen to mand or request for tangible items and activities appropriately, accept "no" as an answer, wait for tangibles or activities for at least five seconds, comply with transitions using a daily visual schedule, keep his shoes on, remain seated while engaging in a preferred activity, play with toys as intended, initiate and reciprocate greetings, engage in alternative activities instead of maladaptive behaviors, walk next to an adult while holding hands, and wait for five seconds for attention. To further support Allen's development, the RBT employed skill acquisition programs. Allen was encouraged to approach when a response was required for reinforcement (A5) and attend to his name (C1). Additionally, he practiced following instructions in routine situations (C7) and performing enjoyable actions (C2). Allen was also guided to wait for five seconds without touching stimuli (A8) and seeking approval for task completion (A19). Reinforcement strategies played an essential role in today's session. The RBT used social and verbal praise to acknowledge Allen's positive behaviors, alongside providing slime as an additional motivator. Specific interventions were applied to address Allen's maladaptive behaviors, such as tantrums and throwing objects. For tantrums, which typically occurred during transitions from preferred to non-preferred activities, the RBT utilized the Premack Principle and redirection techniques to address the escape function. When Allen threw objects, often when attention was focused on his peers, the RBT applied redirection and the Differential Reinforcement of Incompatible Behaviors (DRI) to mitigate this attention-seeking behavior. Overall, today's visit involved a comprehensive approach to managing Allen's behaviors, emphasizing the implementation of replacement behavior programs, skill acquisition programs, and reinforcement strategies to foster positive development and reduce maladaptive behaviors.
-
-
-
-
-
-
+During today's visit at home, the RBT worked diligently to address and improve various maladaptive behaviors observed in the client. The maladaptive behaviors identified included task refusal, tantrums, disruptive behaviors, verbal aggression, socially inappropriate behaviors, and elopement. To address these behaviors, a range of replacement behavior programs were implemented by the RBT. These included fostering compliance with non-preferred activities, encouraging self-management of verbal responses, ensuring tasks were completed within the given time frame, and promoting the completion of house chores. Additionally, the client was guided to engage in appropriate social interactions, ask for help or clarification, provide correct answers, accept corrective feedback, and manage expectations when situations did not go as planned. The RBT also encouraged the client to obtain permission before borrowing items, complete hygiene activities independently, and maintain healthy habits. The RBT utilized skill acquisition programs specifically addressing the reduction of disruptive behaviors, promotion of socially acceptable behaviors, following instructions from multiple caregivers, cooperation and rule-following in various locations, as well as taking appropriate action to deal with and report any wrongdoing by others. Positive reinforcements, such as the use of an iPad, phone, card games, playtime with a turtle or a cat, verbal praise, word games, and bubbles, were employed to encourage and sustain appropriate behaviors. In particular, the RBT applied several interventions tailored to the specific maladaptive behaviors encountered. For disruptive behaviors, which typically occurred during transitions from preferred to non-preferred activities and were driven by the function of escape, the RBT divided complex activities into smaller, manageable steps and reduced task demands. To address tantrums, which were often triggered by a lack of attention, the RBT employed strategies like planned ignoring in terms of extinction and Differential Reinforcement of Other Behaviors (DRO) to refocus attention on positive behaviors. When faced with socially inappropriate behaviors resulting from restricted access to items or activities, the RBT utilized extinction techniques and if/then statements to manage and redirect these behaviors effectively. Overall, today's visit was rich in strategic interventions and positive reinforcements, aiming to decrease maladaptive behaviors and enhance skill acquisition in a home setting.
 """
 palabras_buscar = [
     'replacement behavior',
@@ -83,12 +86,19 @@ palabras_buscar = [
     'replacement behavior programs',
     'plannned ignorin',
     'planned ignoring in terms of extinction',
+    'express emotion',
+    'express emotions',
+    'expressed emotions',
     'unwarranted',
+    'desired tangibles',
     'desire',
     'desires',
+    'desired outcomes',
+    'desired outcome',
     'planned ignore',
     'undesired',
     'desired items',
+    'desired item',
     'desire to item',
     'desired behavior',
     'desired behaviors',
@@ -152,6 +162,7 @@ for palabra, conteo in resultados.items():
     
     print(salida)
     print("-----------------------------")
+
 # Imprimir la línea final
 print()
 print()
