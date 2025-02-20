@@ -27,6 +27,9 @@ sugerencias = {
     "target": "Considera cambiar 'target' por 'address or manage'",
     "cope": "Considera cambiar 'cope' por 'manage or self-regulate'",
     "coping": "Considera cambiar 'coping' por 'self-regulating'",
+    "they": "They: Pronombre sujeto (realiza la acción): Ejemplo: They are studying. (Ellos/Ellas están estudiando.). Ejemplo: I think they will enjoy the movie. (Creo que ellos/ellas disfrutarán de la película).",
+    "their": "Their: Pronombre posesivo (pertenece a ellos/as): Ejemplo: Their house is big. (Su casa es grande.)  I like their style.(Me gusta su estilo.)",
+    "them": "Them: Pronombre objeto (recibe la acción): Ejemplo: I saw them. (Los vi.). I gave them the book. (Les di el libro.).Significa que se usa cuando 'ellos' o 'ellas' son el objeto de la acción. Es el equivalente de 'los/las' o 'a ellos/a ellas'. Ejemplo: I saw them at the park.(Los vi en el parque.)",  
     "targeted interventions": "No es necesario reemplazar 'targeted interventions' o 'targeted intervention'."
 }
 
@@ -78,10 +81,13 @@ def contar_palabras_parciales(texto, palabras_buscar):
     return resultados
 
 texto_ejemplo ="""
-During today's visit to the ABA Center, the focus was on evaluating and improving the behavioral and communicative skills of the client through the implementation of the Assessment of Basic Language and Learning Skills (ABLLS-R). The session observed multiple maladaptive behaviors, including elopement, self-injurious behavior (SIB), and task refusal. To address these behaviors, the analyst modeled a variety of replacement behavior programs, aiming to build more adaptive skills. These replacement behavior programs included teaching the client to wait for a reinforcer, accept "no" as a response, follow an activity schedule, transition between activities, remain on task, and share items by asking for them. Additionally, the analyst worked on fostering skills such as competing activities, requesting attention, and approaching when a response is required for reinforcement. The client also practiced walking next to a caregiver to minimize elopement incidents. To address specific maladaptive behaviors, several intervention strategies were modeled. For task refusal, where the client attempted to escape completing a chore, the Premack Principle and redirection techniques were employed. In instances of self-injurious behavior during situations where demands were withheld, response blocking lasting less than 15 seconds was combined with redirection to mitigate the behavior. For elopement, which occurred during transitions between areas with an underlying function of gaining attention, the analyst used response blocking, redirection, and Differential Reinforcement of Incompatible Behaviors (DRI). The analyst also emphasized the importance of generalization and maintenance of these skills across various settings and with different individuals. This approach ensures that the acquired skills are robust and transferable beyond the structured therapy environment. Throughout the visit, there was no Registered Behavior Technician (RBT) present, which was noted as an environmental change. Overall, the session was aimed at enhancing the client's ability to function adaptively and independently, reducing the occurrence of maladaptive behaviors while promoting effective communication and interaction skills.
+During today's home visit, the RBT observed and , desire, targeted a range of maladaptive behaviors and actively implemented replacement behavior programs to promote positive outcomes. The observed maladaptive behaviors included tantrums, elopement, property destruction, self-injury in the form of head banging, self-scratching, task refusal, and social isolation. To mitigate these behaviors, a variety of replacement strategies were put into practice. These replacements included teaching Ramzi how to request breaks and attention appropriately, encouraging engagement in alternative activities when the preferred options were unavailable, and fostering the ability to respond positively to directives such as "stop." Further, the RBT worked on improving social and communication skills, such as initiating and returning greetings, maintaining eye contact for five seconds when prompted, and following both group and one-step instructions. Ramzi was also encouraged to comply with simple, non-preferred tasks for a short duration, requesting help, permission to exit, and delaying transitions when necessary. Specific interventions were applied to address identified maladaptive behaviors. For instance, Ramzi exhibited a tantrum prompted by being told to turn off the television or device. It consisted of crying, yelling, and throwing myself on the floor. Interventions used addressed the tangible function. These included behavioral momentum, antecedent manipulation, and blocking techniques. In another situation involving task refusal behavior during transitions from preferred to non-preferred activities, interventions focused on escape functions.  Ramzi signaled "No" by shaking his head or saying “No” or when he turned his back on a task or demand. Here, the RBT employed blocking, antecedent manipulation, and behavioral momentum strategies to help mitigate the behavior. The RBT reinforced appropriate behaviors using a combination of edible, non-edible, and social reinforcements. Edible rewards included Skittles and cotton candy, while non-edible rewards featured access to a trampoline and an iPad. Social reinforcements such as high-fives and verbal praise were also used to encourage appropriate behaviors. Overall, the RBTs addressed the implementation of interventions and reinforcement strategies aimed at reducing maladaptive behaviors and fostering the development of positive, adaptive skills, helping Ramzi to engage more constructively in his environment.
+
 
 
 """
+
+
 palabras_buscar = [
     'replacement behavior',
     'replacement behaviors',
@@ -144,15 +150,18 @@ palabras_buscar = [
     'targeted'
 ]
 
+def top_bottomn(n):
+    for _ in range(n):
+        print()
+
+
 # Obtener los resultados de las palabras encontradas en el texto
 resultados = contar_palabras_parciales(texto_ejemplo, palabras_buscar)
 
 # Mostrar resultados con sugerencias cuando corresponda
 # Imprimir la línea de inicio solo una vez
 print("********************************************")
-print()  # Espacio entre la línea de inicio y la primera salida
-print()
-print()
+top_bottomn(4)
 
 # Iterar sobre los resultados
 for palabra, conteo in resultados.items():
@@ -166,7 +175,5 @@ for palabra, conteo in resultados.items():
     print("-----------------------------")
 
 # Imprimir la línea final
-print()
-print()
-print()
+top_bottomn(4)
 print("********************************************")

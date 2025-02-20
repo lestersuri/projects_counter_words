@@ -26,6 +26,10 @@ class WordSuggestion:
             "countering": "Considera cambiar 'countering' por 'addressing'",
             "counteracts": "Considera cambiar 'counteracts' por 'addresses'",
             "counteract": "Considera cambiar 'counteract' por 'address'",
+            "they": "They: Pronombre sujeto (realiza la acción): Ejemplo: They are studying. (Ellos/Ellas están estudiando.). Ejemplo: I think they will enjoy the movie. (Creo que ellos/ellas disfrutarán de la película).",
+            "their": "Their: Pronombre posesivo (pertenece a ellos/as): Ejemplo: Their house is big. (Su casa es grande.)  I like their style.(Me gusta su estilo.)",
+
+            "them": "Them: Pronombre objeto (recibe la acción): Ejemplo: I saw them. (Los vi.). I gave them the book. (Les di el libro.).Significa que se usa cuando 'ellos' o 'ellas' son el objeto de la acción. Es el equivalente de 'los/las' o 'a ellos/a ellas'. Ejemplo: I saw them at the park.(Los vi en el parque.)",
             "target": "Considera cambiar 'target' por 'address or manage'",
             "cope": "Considera cambiar 'cope' por 'manage or self-regulate'",
             "coping": "Considera cambiar 'coping' por 'self-regulating'",
@@ -33,7 +37,7 @@ class WordSuggestion:
         }
 
     def get_suggestion(self, word):
-        return self.sugerencias.get(word, None)
+        return self.sugerencias.get(word, None) # Devuelve None si la palabra no tiene sugerencia
 
 
 class WordCounter:
@@ -89,6 +93,8 @@ class WordCountProcessor:
         print("********************************************")
         print()
         print()
+        print()
+        print()
 
 
         for word, count in results.items():
@@ -98,8 +104,9 @@ class WordCountProcessor:
                 output += f"  {suggestion}"
             print(output)
             print("-----------------------------")
-         
-            
+
+        print()
+        print()
         print()
         print()
         print("********************************************")
@@ -107,7 +114,20 @@ class WordCountProcessor:
 
 # Example usage
 texto_ejemplo = """
-Durante la visita de hoy al Centro ABA, desired, desire, desired item , targeted interventions el enfoque fue evaluar y mejorar las habilidades conductuales y comunicativas del cliente a través de la implementación de la Evaluación de Habilidades Básicas de Lenguaje y Aprendizaje (ABLLS-R). La sesión observó múltiples comportamientos desadaptativos, incluyendo fuga, comportamiento autolesivo (SIB) y rechazo de tareas. Para abordar estos comportamientos, el analista modeló una variedad de programas de comportamientos sustitutos, con el objetivo de desarrollar habilidades más adaptativas. Estos programas de comportamientos sustitutos incluyeron enseñar al cliente a esperar un refuerzo, aceptar el "no" como respuesta, seguir un horario de actividades, transitar entre actividades, permanecer en tareas y compartir elementos pidiéndolos. Además, el analista trabajó en fomentar habilidades como actividades competitivas, solicitar atención y acercarse cuando se requiere una respuesta para reforzamiento. El cliente también practicó caminar junto a un cuidador para minimizar los incidentes de fuga. Para abordar comportamientos desadaptativos específicos, se modelaron varias estrategias de intervención. Para el rechazo de tareas, donde el cliente intentaba escapar de completar una tarea, se emplearon el principio de Premack y técnicas de redirección. En casos de comportamiento autolesivo durante situaciones donde se retuvieron demandas, se combinó el bloqueo de respuestas de menos de 15 segundos con redirección para mitigar el comportamiento. Para la fuga, que ocurría durante transiciones entre áreas con una función subyacente de obtener atención, el analista utilizó bloqueo de respuestas, redirección y Refuerzo Diferencial de Comportamientos Incompatibles (DRI). El analista también enfatizó la importancia de la generalización y mantenimiento de estas habilidades en diferentes entornos y con distintos individuos. Este enfoque asegura que las habilidades adquiridas sean robustas y transferibles más allá del entorno estructurado de la terapia. A lo largo de la visita, no estuvo presente ningún Técnico de Conducta Registrado (RBT), lo que se señaló como un cambio ambiental. En general, la sesión estuvo enfocada en mejorar la capacidad del cliente para funcionar de manera adaptativa e independiente, reduciendo la ocurrencia de comportamientos desadaptativos mientras se fomentaban habilidades efectivas de comunicación e interacción.
+During today's visit to the "Other Place of Service," a range of maladaptive behaviors were observed, and a set of structured interventions were implemented to address these. Matthew displayed several maladaptive behaviors, including elopement, tantrums, off-task behavior, placing non-edible items in his mouth, climbing, refusal to comply, throwing objects, and physical aggression. For each of these behaviors, specific antecedents were identified, and targeted interventions were applied. When Matthew attempted to elope after being asked to complete a non-preferred task, which served the function of escape, verbal prompts and the provision of choices were utilized to direct his actions effectively. In response to throwing objects when asked to work, redirection strategies were implemented, recognizing the escape function of this behavior. When Matthew exhibited tantrums upon being told that a preferred item was unavailable, RBTs employed redirection combined with verbal prompts to shift his focus and address his need for tangibles. For refusal to comply during transitions from preferred to non-preferred activities, antecedent manipulation and functional communication training were applied to help Matthew navigate these transitions, addressing the escape function of his behavior. When Matthew placed non-edible items in his mouth while attention was diverted elsewhere, he was supported through antecedent manipulation and functional communication training to redirect his need for attention. Physical aggression arising from work requests was managed with verbal prompts, redirection, and antecedent manipulation, again addressing the escape function. Additionally, when off-task behavior was noted due to schedule changes, functional communication training was leveraged to support task engagement. Climbing, prompted by being told "no," with a tangible-seeking function, was addressed using a combination of redirection, verbal prompts, and antecedent manipulation. Throughout the session, replacement behavior programs were emphasized, including increasing Matthew's requests for items, his ability to mand for a break, follow instructions, stay on task for one minute, follow stop-and-go instructions, learn to wait without touching materials for five seconds, and take turns. Positive social reinforcements, such as verbal praise, high fives, thumbs up, and commendations for a job well done, were consistently used to encourage and reinforce Matthew's engagement in appropriate behaviors and compliance with interventions. he ride
+
+
+
+
+
+
+
+
+
+
+
+
+
 """
 
 palabras_buscar = [
