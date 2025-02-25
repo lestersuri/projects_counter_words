@@ -18,15 +18,21 @@ sugerencias = {
     "undesirable": "Considerar cambiar 'undesarible' por 'non-preferred'",
     "undesired": "Considere cambiar 'undesired' por 'inappropriate'",
     "counteracting": "Considera cambiar 'counteracting' por 'addressing'",
-    "desired items": "Considera cambiar 'desired item' por 'wanted item'",
+    "desired items": "Considera cambiar 'desired item' por 'preferred item'",
     "desired outcomes": "Considera cambiar 'desired outcomes' por 'appropriate outcomes'",
     "desired outcome": "Considera cambiar 'desired outcome' por 'appropriate outcome'",
+    "desired tangibles": "Considerar cambiar 'desired tangibles' por 'preferred tangibles'",
+    "desired tangible": "Considerar cambiar 'desired tangible' por 'preferred tangible'",
+    "desirable behaviors": " Considerar cambiar 'desirable behaviors' por 'appropriate behaviors' ",
+    "desirable behavior": " Considerar cambiar 'desirable behavior' por 'appropriate behavior' ",
     "countering": "Considera cambiar 'countering' por 'addressing'",
     "counteracts": "Considera cambiar 'counteracts' por 'addresses'",
+    "countered": "Considera cambiar 'countered' por 'addressed'",
     "counteract": "Considera cambiar 'counteract' por 'address'",
     "target": "Considera cambiar 'target' por 'address or manage'",
     "cope": "Considera cambiar 'cope' por 'manage or self-regulate'",
     "coping": "Considera cambiar 'coping' por 'self-regulating'",
+    "combat": "Considera cambiar 'combat' por 'address'",
     "they": "They: Pronombre sujeto (realiza la acción): Ejemplo: They are studying. (Ellos/Ellas están estudiando.). Ejemplo: I think they will enjoy the movie. (Creo que ellos/ellas disfrutarán de la película).",
     "their": "Their: Pronombre posesivo (pertenece a ellos/as): Ejemplo: Their house is big. (Su casa es grande.)  I like their style.(Me gusta su estilo.)",
     "them": "Them: Pronombre objeto (recibe la acción): Ejemplo: I saw them. (Los vi.). I gave them the book. (Les di el libro.).Significa que se usa cuando 'ellos' o 'ellas' son el objeto de la acción. Es el equivalente de 'los/las' o 'a ellos/a ellas'. Ejemplo: I saw them at the park.(Los vi en el parque.)",  
@@ -81,13 +87,13 @@ def contar_palabras_parciales(texto, palabras_buscar):
     return resultados
 
 texto_ejemplo ="""
-During today's home visit, the RBT observed and , desire, targeted a range of maladaptive behaviors and actively implemented replacement behavior programs to promote positive outcomes. The observed maladaptive behaviors included tantrums, elopement, property destruction, self-injury in the form of head banging, self-scratching, task refusal, and social isolation. To mitigate these behaviors, a variety of replacement strategies were put into practice. These replacements included teaching Ramzi how to request breaks and attention appropriately, encouraging engagement in alternative activities when the preferred options were unavailable, and fostering the ability to respond positively to directives such as "stop." Further, the RBT worked on improving social and communication skills, such as initiating and returning greetings, maintaining eye contact for five seconds when prompted, and following both group and one-step instructions. Ramzi was also encouraged to comply with simple, non-preferred tasks for a short duration, requesting help, permission to exit, and delaying transitions when necessary. Specific interventions were applied to address identified maladaptive behaviors. For instance, Ramzi exhibited a tantrum prompted by being told to turn off the television or device. It consisted of crying, yelling, and throwing myself on the floor. Interventions used addressed the tangible function. These included behavioral momentum, antecedent manipulation, and blocking techniques. In another situation involving task refusal behavior during transitions from preferred to non-preferred activities, interventions focused on escape functions.  Ramzi signaled "No" by shaking his head or saying “No” or when he turned his back on a task or demand. Here, the RBT employed blocking, antecedent manipulation, and behavioral momentum strategies to help mitigate the behavior. The RBT reinforced appropriate behaviors using a combination of edible, non-edible, and social reinforcements. Edible rewards included Skittles and cotton candy, while non-edible rewards featured access to a trampoline and an iPad. Social reinforcements such as high-fives and verbal praise were also used to encourage appropriate behaviors. Overall, the RBTs addressed the implementation of interventions and reinforcement strategies aimed at reducing maladaptive behaviors and fostering the development of positive, adaptive skills, helping Ramzi to engage more constructively in his environment.
+During today's home visit, the RBT observed a range of maladaptive behaviors exhibited by the client, including tantrums, disruptive behaviors, off-task instances, elopement, inappropriate social interactions, task refusal, topic preservation, and verbal confrontation. In response, the RBT implemented a variety of replacement behaviors to address these issues. These included strategies such as delay of reinforcement, encouraging time on-task, teaching the acceptance of losing in games, and assisting with the giving up of requested items. Other efforts focused on improving social skills, such as responding to stop-and-go cues, accepting corrective feedback, using an appropriate tone of voice, and following a visual schedule with daily routines. Furthermore, the sessions aimed to promote task completion, appropriate requests for breaks, and staying seated during activities. The RBT also carried out skill acquisition programs, introducing the client to skills like waiting for their turn during conversations, identifying community signals related to ADL/safety, walking next to a caregiver by holding hands, and working independently. Reinforcement for positive behaviors was provided using edibles such as popcorn and M&M's. To tackle specific maladaptive behaviors, targeted interventions were applied. For disruptive behaviors exhibited by the client resulting because attention was not given at the time he wanted because the caregiver was busy, a Differential Reinforcement of Alternate Behaviors (DRA)  was used to shift the client's focus and counter the attention-seeking function. Off-task behavior observed when the client was working on a puzzle activity, motivated by an escape function, was managed using a most-to-least prompt fading technique. Inappropriate social interactions exhibited by the client during a conversation, seeking attention, were managed using redirection.T ask refusal behaviors exhibited by the client in response to being given a task to complete were addressed through the provision of choices as intervention, managing the escape function. For elopement, which occurred when the client was asked to pick up their room,  representing an escape function, extinction was used as the intervention strategy. During incidents of tantrums exhibited by the client, which were driven by the attention given to another person, Functional Communication Training (FCT) was utilized. Verbal confrontation behaviors exhibited by the client with a family member while playing electronic games seeking attention were managed using Differential Reinforcement of Other Behaviors (DRO) to prioritize alternative positive behaviors. For topic preservation behaviors exhibited by the client while the caregiver conversed with others in the room, redirection was used to counter attention-seeking function. Overall, the RBT strategically addressed the client's maladaptive behaviors while encouraging positive behaviors through well-structured interventions, replacement behavior programs, and skill acquisition programs. No medical or safety issues occurred during the visit. The next visit will take place on Sunday the 23rd.
+
+
 
 
 
 """
-
-
 palabras_buscar = [
     'replacement behavior',
     'replacement behaviors',
@@ -103,6 +109,8 @@ palabras_buscar = [
     'desires',
     'desired outcomes',
     'desired outcome',
+    'desirable behaviors',
+    'desirable behavior',
     'planned ignore',
     'undesired',
     'desired items',
@@ -115,6 +123,8 @@ palabras_buscar = [
     'desired task',
     'desire to escape',
     'desired attention',
+    'desired tangibles',
+    'desired tangigle',
     'she',
     'he',
     'met',  # Solo debe contar cuando sea palabra completa
@@ -123,6 +133,7 @@ palabras_buscar = [
     'express emotion',
     'counteract',
     'counteracting',
+    'countered',
     'countering',
     'frustation',
     'cope',
