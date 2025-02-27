@@ -1,0 +1,17 @@
+from PIL import Image
+from transformers import pipeline
+
+path = r"C:/Users/Admon/OneDrive/Desktop/word_replace/mario.jpg"
+
+def clasificar_imagen(path):
+    clasificador_imagen = pipeline("image-classification", model="google/vit-base-patch16-224")
+    
+    # Abrir la imagen con PIL
+    imagen = Image.open(path)
+    
+    # Pasar la imagen al modelo
+    resultado = clasificador_imagen(imagen)
+    
+    print(resultado)
+
+clasificar_imagen(path)
