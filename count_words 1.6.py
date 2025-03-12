@@ -37,8 +37,10 @@ sugerencias = {
     "combat": "Considera cambiar 'combat' por 'address'",
     "they": "They: Pronombre sujeto (realiza la acción): Ejemplo: They are studying. (Ellos/Ellas están estudiando.). Ejemplo: I think they will enjoy the movie. (Creo que ellos/ellas disfrutarán de la película).",
     "their": "Their: Pronombre posesivo (pertenece a ellos/as): Ejemplo: Their house is big. (Su casa es grande.)  I like their style.(Me gusta su estilo.)",
-    "them": "Them: Pronombre objeto (recibe la acción): Ejemplo: I saw them. (Los vi.). I gave them the book. (Les di el libro.).Significa que se usa cuando 'ellos' o 'ellas' son el objeto de la acción. Es el equivalente de 'los/las' o 'a ellos/a ellas'. Ejemplo: I saw them at the park.(Los vi en el parque.)",  
-    "targeted interventions": "No es necesario reemplazar 'targeted interventions' o 'targeted intervention'."
+    "them": "Them: Pronombre objeto (recibe la acción): Ejemplo: I saw them. (Los vi.). I gave them the book. (Les di el libro.).Significa que se usa cuando 'ellos' o 'ellas' son el objeto de la acción. Es el equivalente de 'los/las' o 'a ellos/a ellas'. Ejemplo: I saw them at the park.(Los vi en el parque.)'",  
+    "targeted interventions": "No es necesario reemplazar 'targeted interventions' o 'targeted intervention'.",
+    "targeted": "It is recommended to use 'addressed' instead of targeted when 'addressed' is used to describe behaviors or issues that have been dealt with."
+
 }
 
 # Función para contar las ocurrencias de las palabras en el texto
@@ -89,11 +91,33 @@ def contar_palabras_parciales(texto, palabras_buscar):
     return resultados
 
 texto_ejemplo ="""
-During today's home visit, the RBT observed a range of maladaptive behaviors in the client, including self-injurious behavior (SIB), tantrums, task refusal, non-compliance, physical aggression, licking behavior, bolting/elopement, and vocal stereotypy. To address these behaviors, the RBT implemented various replacement behavior programs and skill acquisition programs to promote more adaptive behaviors and skills in the client. The RBT focused on encouraging the client to echo simple words upon request, tact common objects with echoic prompts, mand items or activities, and accept "no" as a response. The client was also encouraged to transition from a preferred activity to a non-preferred one with some prompting and to build instructional control by staying in his seat, having quiet hands, and maintaining eye contact with the RBT. Additional goals included following simple instructions, responding to hearing his name, increasing eye contact as a form of manding, sharing with peers, taking turns with peers and adults, and using the restroom independently. To support skill acquisition, the RBT employed programs such as motor imitation using objects, gross motor movement imitation, responding to simple motor action instructions, and specifying motor responses in receptive tasks. The RBT also worked on more advanced skills, such as filling in words from songs, selecting non-examples and examples of an item, and sorting by function and feature. The RBT reinforced the client's positive behaviors through social reinforcements like verbal praise and high-fives, as well as other reinforcements, including kinetic sand and figurines. These served as motivating factors to encourage engagement in therapeutic activities. Specific interventions were applied to address the maladaptive behaviors. For bolting/elopement, the RBT maintained safety measures and applied interventions on task refusal and non-compliance. In response to vocal stereotypy observed throughout the session, the RBT used response interruption and redirection. For SIB, with antecedents at the beginning of activities and an escape function, interventions such as antecedent manipulation, functional communication training, non-contingent access to competing stimuli, and response blocking were utilized. Licking behavior, which appeared without a clear motivating operation during activities and free time, was managed through Differential Reinforcement of Incompatible Behaviors (DRI). Despite interventions for tantrums and physical aggression, the summary data does not reflect further details on therapeutic measures utilized during this session. Overall, today's session involved addressing maladaptive behaviors, reinforcing replacement behavior programs, and skill acquisition with a strategic and supportive approach tailored to the client's behavioral patterns and needs.
+During today's visit to the school, the RBT observed a range of maladaptive behaviors exhibited by Matthew, including elopement, tantrums, being off-task, placing non-edible items in his mouth, climbing, refusing to comply, throwing objects, displaying physical aggression, and engaging in stereotypy. In light of these behaviors, the RBT implemented several replacement behavior strategies and skill acquisition programs designed to encourage positive behavior change and skill development. Matthew was encouraged to increase his requests for items and attention, improve his ability to ask for breaks, and enhance his compliance with instructions. Additionally, Matthew was guided to improve his ability to stay on task for one minute and to better differentiate between edible and non-edible items. Safety skills training and lessons on turn-taking and waiting without touching materials were also part of the RBT's strategy. To address specific maladaptive behaviors, the RBT applied targeted interventions. For instance, placing non-edible items in his mouth was addressed through antecedent manipulation, redirection, and verbal prompts, as the behavior functioned as a means to gain attention. When Matthew refused to comply due to lack of attention, interventions involved antecedent manipulation and redirection. Elopement, triggered by denied access to desired items or activities, was managed with antecedent manipulation and functional communication training. For tantrums expressing a need for attention, strategies included antecedent manipulation, physical prompts, and planned ignoring to counteract the attention-seeking function. Climbing in response to being told "No" was addressed using the Premack Principle alongside antecedent manipulation. The off-task behavior during transitions was directed with verbal prompts and redirection to address its escape function. Physical aggression, also driven by unmet attention needs, was managed by antecedent manipulation, redirection, and extinction. Stereotypy, initiated during downtime for sensory stimulation, was addressed by manipulating antecedents. Throwing objects when asked to work—a behavior seeking escape—was approached through antecedent manipulation and delaying reinforcers to diminish its occurrence. In support of these interventions, the RBT employed reinforcements, notably social reinforcements like verbal praise and singing and activities such as playtime at the playground, to commend and encourage positive behavior. Overall, the strategies implemented today aimed to reduce maladaptive behaviors by introducing alternative behaviors and skills, thereby enhancing Matthew's ability to function more adaptively within the school environment.
+
+
+
+
 
 
 
 """
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 palabras_buscar = [
     'replacement behavior',
     'replacement behaviors',
@@ -107,6 +131,7 @@ palabras_buscar = [
     'desired tangibles',
     'desire',
     'desires',
+    'desired',
     'desired outcomes',
     'desired outcome',
     'desirable behaviors',
@@ -152,13 +177,17 @@ palabras_buscar = [
     'targeting',
     'individual',
     'consumer',
+    'customer',
+    'receipt',
     'student',
     'child',
     'subject',
+    'observer',
     'desirables activities',
     'undesired',
     'provider',
     'targeted interventions',
+    'tackled',
     'targeted'
 ]
 
