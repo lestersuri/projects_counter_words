@@ -38,6 +38,7 @@ sugerencias = {
     "they": "They: Pronombre sujeto (realiza la acción): Ejemplo: They are studying. (Ellos/Ellas están estudiando.). Ejemplo: I think they will enjoy the movie. (Creo que ellos/ellas disfrutarán de la película).",
     "their": "Their: Pronombre posesivo (pertenece a ellos/as): Ejemplo: Their house is big. (Su casa es grande.)  I like their style.(Me gusta su estilo.)",
     "them": "Them: Pronombre objeto (recibe la acción): Ejemplo: I saw them. (Los vi.). I gave them the book. (Les di el libro.).Significa que se usa cuando 'ellos' o 'ellas' son el objeto de la acción. Es el equivalente de 'los/las' o 'a ellos/a ellas'. Ejemplo: I saw them at the park.(Los vi en el parque.)'",  
+    "tackling": "Considera cambiar 'tackling' por 'addressing'",
     "targeted interventions": "No es necesario reemplazar 'targeted interventions' o 'targeted intervention'.",
     "targeted": "It is recommended to use 'addressed' instead of targeted when 'addressed' is used to describe behaviors or issues that have been dealt with."
 
@@ -91,16 +92,10 @@ def contar_palabras_parciales(texto, palabras_buscar):
     return resultados
 
 texto_ejemplo ="""
-During today's visit to the school, the RBT observed a range of maladaptive behaviors exhibited by Matthew, including elopement, tantrums, being off-task, placing non-edible items in his mouth, climbing, refusing to comply, throwing objects, displaying physical aggression, and engaging in stereotypy. In light of these behaviors, the RBT implemented several replacement behavior strategies and skill acquisition programs designed to encourage positive behavior change and skill development. Matthew was encouraged to increase his requests for items and attention, improve his ability to ask for breaks, and enhance his compliance with instructions. Additionally, Matthew was guided to improve his ability to stay on task for one minute and to better differentiate between edible and non-edible items. Safety skills training and lessons on turn-taking and waiting without touching materials were also part of the RBT's strategy. To address specific maladaptive behaviors, the RBT applied targeted interventions. For instance, placing non-edible items in his mouth was addressed through antecedent manipulation, redirection, and verbal prompts, as the behavior functioned as a means to gain attention. When Matthew refused to comply due to lack of attention, interventions involved antecedent manipulation and redirection. Elopement, triggered by denied access to desired items or activities, was managed with antecedent manipulation and functional communication training. For tantrums expressing a need for attention, strategies included antecedent manipulation, physical prompts, and planned ignoring to counteract the attention-seeking function. Climbing in response to being told "No" was addressed using the Premack Principle alongside antecedent manipulation. The off-task behavior during transitions was directed with verbal prompts and redirection to address its escape function. Physical aggression, also driven by unmet attention needs, was managed by antecedent manipulation, redirection, and extinction. Stereotypy, initiated during downtime for sensory stimulation, was addressed by manipulating antecedents. Throwing objects when asked to work—a behavior seeking escape—was approached through antecedent manipulation and delaying reinforcers to diminish its occurrence. In support of these interventions, the RBT employed reinforcements, notably social reinforcements like verbal praise and singing and activities such as playtime at the playground, to commend and encourage positive behavior. Overall, the strategies implemented today aimed to reduce maladaptive behaviors by introducing alternative behaviors and skills, thereby enhancing Matthew's ability to function more adaptively within the school environment.
-
-
-
-
-
+During today's visit at home, the RBT observed several maladaptive behaviors exhibited by Allen, including tantrums, pushing others, throwing objects, physical aggression, elopement, self-injury behaviors (SIB), throwing himself on the floor, and playing with saliva. To address these behaviors, the RBT implemented various replacement behaviors. For instance, Allen was guided to request tangibles and activities appropriately using manding, learn to accept "no," and wait for tangibles or activities for 5 seconds. Other strategies included helping Allen comply with transitions using a daily visual schedule, keeping his shoes on, remaining seated while engaging in a preferred activity, and playing with toys as intended. Additionally, Allen was encouraged to initiate and reciprocate greetings, use a chewing necklace when attempting to play with saliva, walk next to an adult while holding hands, and wait 5 seconds for attention. The skill acquisition programs focused on teaching Allen to approach when a response is required for reinforcement, attend to his name, follow instructions in routine situations, perform enjoyable actions following instructions, wait for 5 seconds without touching stimuli, and seek approval upon task completion. To motivate Allen, social reinforcement through verbal praise and slime were used as rewards. Regarding interventions, two specific maladaptive behaviors were addressed. When Allen threw himself on the floor, which typically occurred at the beginning of activities and served the function of escape, the RBT applied interventions like redirection and used if/then statements. Additionally, when Allen had tantrums when asked to put something away, indicating a desire for tangibles, the RBT used redirection along with the Premack Principle to manage the behavior. Overall, today's session involved tackling various behavioral challenges while emphasizing the development of more adaptive skills and strategies for Allen.
 
 
 """
-
 
 
 
@@ -122,6 +117,8 @@ palabras_buscar = [
     'replacement behavior',
     'replacement behaviors',
     'replacement behavior programs',
+    'replace program',
+    'replace programs',
     'plannned ignorin',
     'planned ignoring in terms of extinction',
     'express emotion',
@@ -188,6 +185,8 @@ palabras_buscar = [
     'provider',
     'targeted interventions',
     'tackled',
+    'tackling',
+    'tackle',
     'targeted'
 ]
 
