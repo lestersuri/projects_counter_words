@@ -38,6 +38,7 @@ sugerencias = {
     "they": "They: Pronombre sujeto (realiza la acción): Ejemplo: They are studying. (Ellos/Ellas están estudiando.). Ejemplo: I think they will enjoy the movie. (Creo que ellos/ellas disfrutarán de la película).",
     "their": "Their: Pronombre posesivo (pertenece a ellos/as): Ejemplo: Their house is big. (Su casa es grande.)  I like their style.(Me gusta su estilo.)",
     "them": "Them: Pronombre objeto (recibe la acción): Ejemplo: I saw them. (Los vi.). I gave them the book. (Les di el libro.).Significa que se usa cuando 'ellos' o 'ellas' son el objeto de la acción. Es el equivalente de 'los/las' o 'a ellos/a ellas'. Ejemplo: I saw them at the park.(Los vi en el parque.)'",  
+    "tackled": "Considera cambiar 'tackled' por 'addressed'",
     "tackling": "Considera cambiar 'tackling' por 'addressing'",
     "targeted interventions": "No es necesario reemplazar 'targeted interventions' o 'targeted intervention'.",
     "targeted": "It is recommended to use 'addressed' instead of targeted when 'addressed' is used to describe behaviors or issues that have been dealt with."
@@ -92,26 +93,7 @@ def contar_palabras_parciales(texto, palabras_buscar):
     return resultados
 
 texto_ejemplo ="""
-During today's visit at home, the RBT observed several maladaptive behaviors exhibited by Allen, including tantrums, pushing others, throwing objects, physical aggression, elopement, self-injury behaviors (SIB), throwing himself on the floor, and playing with saliva. To address these behaviors, the RBT implemented various replacement behaviors. For instance, Allen was guided to request tangibles and activities appropriately using manding, learn to accept "no," and wait for tangibles or activities for 5 seconds. Other strategies included helping Allen comply with transitions using a daily visual schedule, keeping his shoes on, remaining seated while engaging in a preferred activity, and playing with toys as intended. Additionally, Allen was encouraged to initiate and reciprocate greetings, use a chewing necklace when attempting to play with saliva, walk next to an adult while holding hands, and wait 5 seconds for attention. The skill acquisition programs focused on teaching Allen to approach when a response is required for reinforcement, attend to his name, follow instructions in routine situations, perform enjoyable actions following instructions, wait for 5 seconds without touching stimuli, and seek approval upon task completion. To motivate Allen, social reinforcement through verbal praise and slime were used as rewards. Regarding interventions, two specific maladaptive behaviors were addressed. When Allen threw himself on the floor, which typically occurred at the beginning of activities and served the function of escape, the RBT applied interventions like redirection and used if/then statements. Additionally, when Allen had tantrums when asked to put something away, indicating a desire for tangibles, the RBT used redirection along with the Premack Principle to manage the behavior. Overall, today's session involved tackling various behavioral challenges while emphasizing the development of more adaptive skills and strategies for Allen.
-
-
-"""
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+During today's visit to the school, the RBT observed a range of maladaptive behaviors displayed by the client, including tantrums, being off task, elopement, property destruction, and inappropriate play. In response, the RBT implemented a variety of replacement behavior programs to help guide the client towards more acceptable actions. These replacement behavior programs included gestures for 'yes' and 'no,' adjusting clothing properly, using the potty, accepting transitions between activities, taking 'no' for an answer, using toys appropriately according to her design, agreeing to have tangibles removed, requesting by indicating (tact), and accepting help. The RBT utilized different categories of reinforcements to encourage the client's positive behavior. Non-edible reinforcements included engaging items like kinetic sand, magnets, play-doh, dolls, paint, coloring books, bubbles, and access to a tablet. Social reinforcements such as applause, verbal praise, and high fives were also provided to reward and motivate the client. To address the maladaptive behaviors specifically, the RBT applied targeted interventions. For elopement, which occurred during transitions from preferred to non-preferred activities with an escape function, interventions included antecedent manipulation, response blocking, and redirection. Inappropriate play, driven by sensory needs in the absence of demands, was managed using functional communication training, redirection, and providing choices. Property destruction, associated with escape from non-preferred tasks, was addressed through antecedent manipulation, response blocking, and redirection. The off-task behavior, triggered by being denied access to a preferred item or activity for tangible reasons, was mitigated using behavioral momentum, the Premack Principle, and redirection. Lastly, tantrums related to being asked to put something away were handled with functional communication training, the Premack Principle, and the offering of choices. Overall, the RBT's strategic application of replacement behavior programs, reinforcements, and specific interventions aimed to reduce maladaptive behaviors and promote positive engagement during the school visit."""
 
 palabras_buscar = [
     'replacement behavior',
@@ -179,6 +161,7 @@ palabras_buscar = [
     'student',
     'child',
     'subject',
+    'therapist',
     'observer',
     'desirables activities',
     'undesired',
