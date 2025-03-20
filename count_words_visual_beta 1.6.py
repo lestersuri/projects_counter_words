@@ -110,6 +110,7 @@ palabras_buscar = [
     'targeted behaviors',
     'targeting',
     'individual',
+    'targets',
     'consumer',
     'customer',
     'receipt',
@@ -128,9 +129,9 @@ palabras_buscar = [
     'targeted'
 ]
 
-texto_ejemplo = """
-During today's visit to the ABA Center, several maladaptive behaviors were observed, including tantrums, off-task behavior, and elopement. The RBT actively implemented a variety of replacement behaviors to address these issues...
-"""
+texto_ejemplo = """ """
+
+
 
 def contar_palabras_parciales(texto, palabras_buscar):
     # [Mantener la función exactamente igual que en el archivo original]
@@ -171,11 +172,6 @@ def contar_palabras_parciales(texto, palabras_buscar):
     
     return resultados
 
-import tkinter as tk
-from tkinter import scrolledtext
-from tkinter import ttk
-import re
-from collections import Counter
 
 # ... [previous code with sugerencias, palabras_buscar, etc.] ...
 
@@ -183,7 +179,7 @@ class WordCounterApp:
     def __init__(self, root):
         self.root = root
         self.root.title("Analizador de Texto")
-        self.root.geometry("1200x900")
+        self.root.geometry("730x780")
         
         # Frame principal
         main_frame = ttk.Frame(root, padding="10")
@@ -193,6 +189,7 @@ class WordCounterApp:
         ttk.Label(main_frame, text="Ingrese el texto a analizar:", font=('Arial', 10, 'bold')).grid(row=0, column=0, sticky=tk.W)
         self.text_input = scrolledtext.ScrolledText(main_frame, width=100, height=15, font=('Arial', 10))
         self.text_input.grid(row=1, column=0, columnspan=2, pady=5)
+
         
         # Botones
         button_frame = ttk.Frame(main_frame)

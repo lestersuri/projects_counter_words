@@ -93,7 +93,35 @@ def contar_palabras_parciales(texto, palabras_buscar):
     return resultados
 
 texto_ejemplo ="""
-During today's visit to the school, the RBT observed a range of maladaptive behaviors displayed by the client, including tantrums, being off task, elopement, property destruction, and inappropriate play. In response, the RBT implemented a variety of replacement behavior programs to help guide the client towards more acceptable actions. These replacement behavior programs included gestures for 'yes' and 'no,' adjusting clothing properly, using the potty, accepting transitions between activities, taking 'no' for an answer, using toys appropriately according to her design, agreeing to have tangibles removed, requesting by indicating (tact), and accepting help. The RBT utilized different categories of reinforcements to encourage the client's positive behavior. Non-edible reinforcements included engaging items like kinetic sand, magnets, play-doh, dolls, paint, coloring books, bubbles, and access to a tablet. Social reinforcements such as applause, verbal praise, and high fives were also provided to reward and motivate the client. To address the maladaptive behaviors specifically, the RBT applied targeted interventions. For elopement, which occurred during transitions from preferred to non-preferred activities with an escape function, interventions included antecedent manipulation, response blocking, and redirection. Inappropriate play, driven by sensory needs in the absence of demands, was managed using functional communication training, redirection, and providing choices. Property destruction, associated with escape from non-preferred tasks, was addressed through antecedent manipulation, response blocking, and redirection. The off-task behavior, triggered by being denied access to a preferred item or activity for tangible reasons, was mitigated using behavioral momentum, the Premack Principle, and redirection. Lastly, tantrums related to being asked to put something away were handled with functional communication training, the Premack Principle, and the offering of choices. Overall, the RBT's strategic application of replacement behavior programs, reinforcements, and specific interventions aimed to reduce maladaptive behaviors and promote positive engagement during the school visit."""
+During today's visit to the ABA Center, the RBT observed several maladaptive behaviors exhibited by the client. These behaviors included Mouthing/PICA, Property Destruction, Physical Aggression, Climbing, and Bolting/Elopement. In response, the RBT employed a range of replacement behaviors and interventions to address these challenges. To mitigate these maladaptive behaviors, the RBT implemented various replacement behaviors. These included encouraging the client to mand for tangibles, accept delays of requested tangibles for ten seconds, follow simple instructions, and remain on-task for fifteen seconds. Additionally, the client was prompted to hand out objects when instructed and to identify and match objects from pictures. The client was also taught to wait next to a caregiver, which is crucial to prevent instances of bolting or elopement. The RBT focused on one skill acquisition program, specifically "A 8-Waits without touching stimuli," as part of today's session. This program was likely aimed at increasing the client's ability to exercise self-control and patience, which ties into the observed maladaptive behaviors. Non-edible reinforcements, specifically preferred toys, were used as positive reinforcement for the client whenever a replacement behavior was successfully demonstrated or when the client made progress within the skill acquisition program. Intervention strategies were applied to address specific maladaptive behaviors. For instance, when the client engaged in property destruction, likely triggered by an antecedent of being asked to work, the RBT identified the function of this behavior as an escape. To counter this, the RBT used interventions such as interruption/redirection and Differential Reinforcement of Incompatible Behaviors (DRI). In instances of bolting/elopement, which were determined to occur without demands and primarily due to automatic reinforcement, interventions included interruption/redirection, antecedent environmental manipulation, and verbal prompting. Overall, today's session at the ABA Center focused on reducing maladaptive behaviors through the strategic implementation of replacement behaviors, skill acquisition programs, and targeted interventions, all supported by the use of non-edible reinforcements to encourage positive progress.
+
+
+
+
+
+
+
+
+
+
+
+"""
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 palabras_buscar = [
     'replacement behavior',
