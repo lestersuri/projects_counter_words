@@ -36,6 +36,7 @@ const sugerencias = {
     "them": "Them: Pronombre objeto (recibe la acción): Ejemplo: I saw them. (Los vi.). I gave them the book. (Les di el libro.).Significa que se usa cuando 'ellos' o 'ellas' son el objeto de la acción. Es el equivalente de 'los/las' o 'a ellos/a ellas'. Ejemplo: I saw them at the park.(Los vi en el parque.)",
     "tackled": "Considera cambiar 'tackled' por 'addressed'",
     "tackling": "Considera cambiar 'tackling' por 'addressing'",
+    "replacement behaviors": "Considera cambiar 'replacement behaviors' por 'replacement behavior programs'",
     "targeted interventions": "No es necesario reemplazar 'targeted interventions' o 'targeted intervention'.",
     "targeted": "It is recommended to use 'addressed' instead of targeted when 'addressed' is used to describe behaviors or issues that have been dealt with."
 };
@@ -70,13 +71,16 @@ function contarPalabrasParciales(texto) {
         "desired behaviors",
         "desired behavior",
         "targeted interventions",
-        "targeted intervention"
+        "targeted intervention",
+        "desirable behavior",
+        "desirable behaviors"
     ];
 
     // Buscar frases completas primero
     frasesCompletas.forEach(frase => {
         const regex = new RegExp('\\b' + frase.toLowerCase() + '\\b', 'g');
         let match;
+        
         while ((match = regex.exec(texto)) !== null) {
             resultados[frase] = (resultados[frase] || 0) + 1;
             if (!posiciones[frase]) posiciones[frase] = [];
@@ -87,7 +91,7 @@ function contarPalabrasParciales(texto) {
     // Buscar palabras individuales
     palabrasBuscar.forEach(palabra => {
         if (['he', 'she'].includes(palabra)) {
-            const regex = new RegExp('\\b' + palabra + '\\b\\s+\\w+', 'g');
+            const regex = new RegExp('\\b' + palabra + '\\s+\\w+\\b', 'gi');
             let match;
             while ((match = regex.exec(texto)) !== null) {
                 const palabraCompleta = match[0].trim();
@@ -98,6 +102,7 @@ function contarPalabrasParciales(texto) {
         } else if (!frasesCompletas.includes(palabra)) {
             const regex = new RegExp('\\b' + palabra.toLowerCase() + '\\b', 'g');
             let match;
+            
             while ((match = regex.exec(texto)) !== null) {
                 resultados[palabra] = (resultados[palabra] || 0) + 1;
                 if (!posiciones[palabra]) posiciones[palabra] = [];
@@ -117,63 +122,90 @@ const loadExampleBtn = document.getElementById('load-example-btn');
 const resultsDiv = document.getElementById('results');
 
 // Función para resaltar palabras en el texto
+function escapeHtml(text) {
+    return text
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;")
+        .replace(/"/g, "&quot;")
+        .replace(/'/g, "&#039;");
+}
+
 function resaltarPalabras(texto, posiciones) {
-    // Crear un elemento div temporal para mostrar el texto resaltado
     const displayDiv = document.createElement('div');
     displayDiv.className = 'highlighted-text';
     displayDiv.style.whiteSpace = 'pre-wrap';
     displayDiv.style.minHeight = '200px';
-    displayDiv.style.padding = '10px';
+    displayDiv.style.maxHeight = '400px';
+    displayDiv.style.overflowY = 'auto';
+    displayDiv.style.padding = '20px';
     displayDiv.style.border = '1px solid #ddd';
-    displayDiv.style.borderRadius = '4px';
-    displayDiv.style.marginTop = '10px';
+    displayDiv.style.borderRadius = '8px';
+    displayDiv.style.marginTop = '20px';
+    displayDiv.style.backgroundColor = '#fafafa';
+    displayDiv.style.fontSize = '14px';
+    displayDiv.style.lineHeight = '1.6';
     
-    let resultado = texto;
-    const todasPosiciones = [];
+    // Clean and escape the input text first
+    let resultado = escapeHtml(texto);
     
-    // Recopilar y ordenar todas las posiciones
+    // Create a map of positions to avoid overlapping highlights
+    const highlightMap = new Map();
+    
+    // Process all positions and create highlight map
     for (const [palabra, pos] of Object.entries(posiciones)) {
-        pos.forEach(p => todasPosiciones.push({ palabra, posicion: p }));
+        const palabraLower = palabra.toLowerCase();
+        pos.forEach(posicion => {
+            const length = palabra.length;
+            // Check for overlapping highlights
+            let canHighlight = true;
+            for (let i = posicion; i < posicion + length; i++) {
+                if (highlightMap.has(i)) {
+                    canHighlight = false;
+                    break;
+                }
+            }
+            
+            if (canHighlight) {
+                // Mark all positions as taken
+                for (let i = posicion; i < posicion + length; i++) {
+                    highlightMap.set(i, {
+                        palabra: palabraLower,
+                        start: posicion,
+                        length: length
+                    });
+                }
+            }
+        });
     }
-    todasPosiciones.sort((a, b) => b.posicion - a.posicion);
+    
+    // Convert the map to array and sort by position
+    const sortedPositions = Array.from(highlightMap.entries())
+        .filter(([_, data]) => data.start === _)
+        .sort((a, b) => b[0] - a[0]);
+    
+    // Apply highlights
+    for (const [posicion, data] of sortedPositions) {
+        const inicio = data.start;
+        const fin = inicio + data.length;
+        const sugerencia = sugerencias[data.palabra] ? escapeHtml(sugerencias[data.palabra]) : '';
+        const originalText = resultado.slice(inicio, fin);
+        
+        const beforeText = resultado.slice(0, inicio);
+        const afterText = resultado.slice(fin);
+        
+        resultado = beforeText + 
+                   `<span class="highlighted" data-word="${escapeHtml(data.palabra)}" title="${sugerencia}">${originalText}</span>` + 
+                   afterText;
+    }
 
-    // Insertar spans para resaltar
-    todasPosiciones.forEach(({ palabra, posicion }) => {
-        const longitudPalabra = palabra.length;
-        const inicio = posicion;
-        const fin = posicion + longitudPalabra;
-        const spanInicio = `<span class="highlighted" data-word="${palabra}" title="${sugerencias[palabra] || ''}">`;
-        resultado = resultado.slice(0, inicio) + spanInicio + resultado.slice(inicio, fin) + '</span>' + resultado.slice(fin);
-    });
+
 
     displayDiv.innerHTML = resultado;
     return displayDiv;
 }
 
-// Función para aplicar sugerencia
-function aplicarSugerencia(palabra) {
-    const sugerencia = sugerencias[palabra];
-    if (!sugerencia) return;
 
-    const match = sugerencia.match(/cambiar '([^']+)' por '([^']+)'/i);
-    if (!match) return;
-
-    const [, original, reemplazo] = match;
-    const texto = textInput.value;
-    const regex = new RegExp('\\b' + original + '\\b', 'gi');
-    
-    // Crear un historial de cambios
-    if (!window.cambiosHistorial) {
-        window.cambiosHistorial = [];
-    }
-    window.cambiosHistorial.push({ original: texto });
-    
-    // Aplicar el reemplazo
-    textInput.value = texto.replace(regex, reemplazo);
-    
-    // Volver a analizar el texto
-    analizarTexto();
-}
 
 // Eventos
 analyzeBtn.addEventListener('click', analizarTexto);
@@ -198,17 +230,48 @@ function analizarTexto() {
     }
 
     const { resultados, posiciones } = contarPalabrasParciales(texto);
-    mostrarResultados(resultados);
     
-    // Crear y mostrar el texto resaltado
-    const displayDiv = resaltarPalabras(texto, posiciones);
+    // Clear previous results
+    resultsDiv.innerHTML = '';
     
-    // Limpiar el contenedor de resultados y agregar el texto resaltado
-    const textDisplay = document.querySelector('.highlighted-text');
-    if (textDisplay) {
-        textDisplay.remove();
+    // Create and show word count results
+    const resultsList = document.createElement('div');
+    resultsList.className = 'results-list';
+    
+    for (const [palabra, cantidad] of Object.entries(resultados)) {
+        const resultItem = document.createElement('div');
+        resultItem.className = 'result-item';
+        
+        const wordContainer = document.createElement('div');
+        wordContainer.className = 'word-container';
+        
+        const wordSpan = document.createElement('span');
+        wordSpan.className = 'word';
+        wordSpan.textContent = palabra;
+        
+        const countSpan = document.createElement('span');
+        countSpan.className = 'count';
+        countSpan.textContent = cantidad;
+        
+        wordContainer.appendChild(wordSpan);
+        wordContainer.appendChild(countSpan);
+        
+        if (sugerencias[palabra]) {
+            const suggestionDiv = document.createElement('div');
+            suggestionDiv.className = 'suggestion';
+            suggestionDiv.textContent = sugerencias[palabra];
+            wordContainer.appendChild(suggestionDiv);
+        }
+        
+        resultItem.appendChild(wordContainer);
+        resultsList.appendChild(resultItem);
     }
-    resultsDiv.insertBefore(displayDiv, resultsDiv.firstChild);
+    
+    resultsDiv.appendChild(resultsList);
+    
+    // Create and show highlighted text
+    const displayDiv = resaltarPalabras(texto, posiciones);
+    resultsDiv.appendChild(displayDiv);
 }
 
 function mostrarResultados(resultados) {
@@ -221,14 +284,7 @@ function mostrarResultados(resultados) {
         if (palabra in sugerencias) {
             const sugerenciaDiv = document.createElement('div');
             sugerenciaDiv.innerHTML = `${palabra}: ${conteo} ${sugerencias[palabra]}`;
-            
-            const botonReemplazar = document.createElement('button');
-            botonReemplazar.textContent = 'Aplicar Sugerencia';
-            botonReemplazar.className = 'replace-btn';
-            botonReemplazar.onclick = () => aplicarSugerencia(palabra);
-            
             resultItem.appendChild(sugerenciaDiv);
-            resultItem.appendChild(botonReemplazar);
         } else {
             resultItem.textContent = `${palabra}: ${conteo}`;
         }
@@ -273,11 +329,39 @@ style.textContent = `
         overflow-y: auto;
     }
     .result-item {
+        padding: 12px;
+        border-bottom: 1px solid #eee;
+        background-color: #f9f9f9;
+        transition: background-color 0.2s;
+    }
+    .result-item:hover {
+        background-color: #f0f0f0;
+    }
+    .word-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        padding: 10px;
-        border-bottom: 1px solid #eee;
+        margin-bottom: 6px;
+    }
+    .word {
+        font-weight: bold;
+        color: #333;
+        font-size: 14px;
+    }
+    .count {
+        background-color: #e0e0e0;
+        padding: 2px 8px;
+        border-radius: 12px;
+        color: #666;
+        font-size: 12px;
+        min-width: 24px;
+        text-align: center;
+    }
+    .suggestion {
+        color: #666;
+        font-size: 13px;
+        margin-top: 4px;
+        font-style: italic;
     }
     .separator {
         margin: 10px 0;
